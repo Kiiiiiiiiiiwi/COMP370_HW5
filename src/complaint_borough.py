@@ -3,7 +3,7 @@ import csv
 from datetime import datetime
 import sys
 
-# python3 src/complaint_borough.py -i data/311_clean_records.csv -s 2024-01-12 -e 2024-01-15
+# python3 src/complaint_borough.py -i /Users/kanjie/Documents/COMP370_HW5_data/311_clean_with_header.csv -s 2024-01-12 -e 2024-01-15 -o borough_complaint.csv
 
 def main():
 
@@ -62,3 +62,10 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+# awk -F, 'NR > 1 {sum += $3} END {print sum}' borough_complaint.csv
+# verify the total number of complaints in the output file
+
+# awk -F, '$2 ~ /^01\/12\/2024/' 311_clean_with_header.csv | wc -l
+# verify the number of complaints on 2024-01-12 in the input file(the 2nd column)
